@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Criar usuárioS</title>
+    <link rel="icon" type="image/x-icon" href="./img/airplane.ico">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <h2>CRIAR COMPRA</h2>
+
+    
+
+    <hr>
+<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<h1 class="mt-5" >Cadastro de Compras</h1>
+    <form class="mt-5" th:action="@{/compras/save}" th:object="${compra}" method="post">
+        <div class="form-group">
+       
+
+        <div>
+            <label for="nome">Forma de pagamento:</label>
+            <input  class="form-control" type="text" id="formaPagamento" th:field="*{formaPagamento}" />
+        </div>
+
+       
+        <div>
+            <label for="senha">Data:</label>
+            <input  class="form-control" type="date" id="data" th:field="*{data}" />
+        </div>
+
+        <div>
+            <label for="email">Valor de total:</label>
+            <input  class="form-control" type="number" id="valorTotal" th:field="*{valorTotal}" />
+        </div>
+
+       
+
+        
+
+        <div class="d-flex justify-content-center">
+            <button class="btn btn-primary" type="submit">Salvar</button>
+        </div>
+    </form>
+    		</div>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

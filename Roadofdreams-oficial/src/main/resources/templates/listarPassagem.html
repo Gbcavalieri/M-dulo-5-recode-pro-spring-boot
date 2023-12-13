@@ -1,0 +1,93 @@
+<!--INDEX-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	
+	<head> 
+		<meta charset="UTF-8">
+	<link rel="icon" type="image/x-icon" href="./img/airplane.ico">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+		
+		
+		
+		<body class="text-center">
+		<header>
+			
+			 <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-light">
+            <div class="container">
+				
+                <a class="navbar-brand" href="#"><img src="" height="48px"/> </a>
+                <h5 style= "color: white">ROAD OF DREAMS</h5> 
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/home">Home</a>
+                        </li>
+                      
+                      
+                        <li class="nav-item">
+                            <a class="nav-link" href="/usuarios">Usuários</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/compras">Compra</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/passagens">Passagem</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+		</header>
+		<h1 class="mt-5">Lista de Passagens</h1>
+		<div class="container mt-5"> <a class="btn btn-primary mb-5" th:href="@{/passagens/novo}">  Add Passagens </a> 
+		</div>
+			
+			<table class="table table-bordered">
+				<tr>
+					<th>ID</th>
+					<th>Data de ida</th>
+					<th>Data de volta</th>
+					<th>Origem</th>
+					<th>Destino</th>
+					<th>Quantidade de lugares</th>
+					<th>Agência</th>
+					</tr>
+					<tr th:each="passagens : ${passagens}">
+						<td th:text="${passagens.idPassagem}"></td> 
+						<td th:text="${passagens.dataIda}"></td>
+						<td th:text="${passagens.dataVolta}"></td>
+						<td th:text="${passagens.origem}"></td>
+						<td th:text="${passagens.destino}"></td>
+						<td th:text="${passagens.quantidadeLugares}"></td>
+						<td th:text="${passagens.agencia}"></td>
+						
+						
+						<td> 
+							<div class="d-flex">
+							
+	    <a class="btn btn-danger" th:href="@{/passagens/deletar/{id}(id=${passagens.idPassagem})}">Deletar</a>
+	      <a class="btn btn-success" th:href="@{/passagens/editar/{id}(id=${passagens.idPassagem})}">Editar</a>
+            
+								
+							</div>
+							
+         
+						</td>
+						
+						
+						
+					</tr>
+				
+			</table>
+			
+			
+		</body>
+		
+			
+		</html>

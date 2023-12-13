@@ -1,0 +1,87 @@
+<!--INDEX-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	
+	<head> 
+		<meta charset="UTF-8">
+	<link rel="icon" type="image/x-icon" href="./img/airplane.ico">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+		
+		
+		
+		<body class="text-center">
+		<header>
+			
+			 <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-light">
+            <div class="container">
+				
+                <a class="navbar-brand" href="#"><img src="" height="48px"/> </a>
+                <h5 style= "color: white">ROAD OF DREAMS</h5> 
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                         
+                         <li class="nav-item">
+                            <a class="nav-link" href="/home">Home</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/usuarios">Usuários</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/compras">Compra</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/passagens">Passagem</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+		</header>
+		<h1 class="mt-5">Lista de Usuários</h1>
+		<div class="container mt-5"> <a class="btn btn-primary mb-5" th:href="@{/usuarios/novo}">  Add Usuários </a> 
+		</div>
+			
+			<table class="table table-bordered">
+				<tr>
+					<th>ID</th>
+					<th>Nome</th>
+					<th>Senha</th>
+					<th>Email</th>
+					<th>Gênero</th>
+					<th>Ações</th>
+					</tr>
+					<tr th:each="usuario : ${usuario}">
+						<td th:text="${usuario.idUsuario}"></td> 
+						<td th:text="${usuario.nome}"></td>
+						<td th:text="${usuario.senha}"></td>
+						<td th:text="${usuario.email}"></td>
+						<td th:text="${usuario.genero}"></td>
+						
+						<td> 
+							<div class="d-flex">  
+     <a th:href="@{/usuarios/deletarUsuario/{id}(id=${usuario.idUsuario})}"><button class="btn btn-danger" type="submit">Deletar</button></a>
+      <a class="btn btn-success" th:href="@{/usuarios/editar/{id}(id=${usuario.idUsuario})}">Editar</a>
+								
+							</div>
+							
+         
+						</td>
+						
+						
+						
+					</tr>
+				
+			</table>
+			
+			
+		</body>
+		
+			
+		</html>
